@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <link rel="stylesheet" href="styles/style.css"/>
-  <title>Nova Associate Micronational Organisation</title>
+  <title>Join the Nova Associate Micronational Organisation</title>
 </head>
 <body>
   <div id="topbar-nav">
@@ -19,11 +19,27 @@
       <div id="user-display"></div>
       <img src="https://static.wikitide.net/namowiki/d/d0/NAMO_Flag.png">
   </div>
-  <h1>Nova Associate Micronational Organisation</h1>
-  <p>The Nova Associate Micronational Organisation is currently the largest global Intermicronational Organisation, with a total of 65 members!</p>
-  <p>We welcome all micronations and de-facto states from anywhere in the world to join our alliance!</p>
-  <a href="join" class="button-link">Join Now!</a>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="main-content">
+    <h1>Join the Nova Associate Micronational Organisation!</h1>
+    <p>Joining the Nova Associate Micronational Organisation is very simple, however your micronation must meet the following criteria</p>
+    <li>You must have a MicroWiki OR NAMOwiki Page.</li>
+    <li>You must not be far-right.</li>
+    <li>You must be active on MicroWiki or NAMOwiki, if you aren't active, you will be dropped down to observer status unless you have a viable excuse.</li>
+    <br><br>
+    <a href="https://forms.office.com/e/VsYCD8Y4CJ">Apply</a>
+</form>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { document.getElementById('namoForm').style.display='none'; document.getElementById('confirmation').style.display='block'; }"></iframe>
+
+<div id="confirmation" style="display:none; margin-top:20px;">
+  <p><strong>Thank you!</strong> Your application has been submitted to NAMO.</p>
+</div>
+
+<script>
+  let submitted = false;
+</script>
+  </div>
+
   <div id="bottombar-container">
     <div id="bottombar-nav">
       <a href='https://wiki.namoalliance.org/wiki/Nova_Associate_Micronational_Organisation'>NAMOwiki Page</a>
@@ -53,6 +69,5 @@
   // Run on page load
   document.addEventListener("DOMContentLoaded", showLoggedInUser);
 </script>
-
 </body>
 </html>

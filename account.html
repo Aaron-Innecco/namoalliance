@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login/Register for the Nova Associate Micronational Organisation</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+  <div id="topbar-nav">
+      <img src="https://static.wikitide.net/namowiki/d/d0/NAMO_Flag.png">
+      <a href="https://namoalliance.org/">Home</a>
+      <a href="https://namoalliance.org/join">Join</a>
+      <a href="https://namoalliance.org/members">Members</a>
+      <a href="https://wiki.namoalliance.org/wiki/Main_Page">Wiki</a>
+      <a href="https://namoalliance.org/discussion">Discussion</a>
+      <a href="https://namoalliance.org/news">News</a>
+      <a href="https://namoalliance.org/account">Account</a>
+      <a href="https://namoalliance.org/contact-us">Contact us</a>
+      <div id="user-display"></div>
+      <img src="https://static.wikitide.net/namowiki/d/d0/NAMO_Flag.png">
+  </div>
+
+    <br />
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+  const API_BASE = "https://api.namoalliance.org";
+
+  function App() {
+    const [view, setView] = React.useState("login");
+
+    return (
+      <div>
+        <button onClick={() => setView("register")}>Register</button>
+        <button onClick={() => setView("login")}>Login</button>
+        <button onClick={async () => {
+          await fetch(`${API_BASE}/api/user/logout`, { method: 'POST', credentials: 'include' });
+          localStorage.removeItem("loggedInUser");
+          window.location.reload();
+        }}>Logout</button>
+
+        {view === "register" ? <RegisterForm setView={setView} /> : <LoginForm />}
+      </div>
+    );
+  }
+
+  function RegisterForm({ setView }) {
+    const [username, setUsername] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const response = await fetch(`${API_BASE}/api/user/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password }),
+        credentials: 'include'
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert('Registered successfully');
+        setView('login');
+      } else {
+        alert(result.error);
+      }
+    };
+
+    return (
+      <form onSubmit={handleSubmit}>
+        <h2>Register</h2>
+        <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
+        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
+        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
+        <button type="submit">Register</button>
+      </form>
+    );
+  }
+
+  function LoginForm() {
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    const handleLogin = async (e) => {
+      e.preventDefault();
+      const response = await fetch(`${API_BASE}/api/user/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+        credentials: 'include'
+      });
+      const result = await response.json();
+      if (response.ok) {
+        localStorage.setItem('loggedInUser', username);
+        window.location.href = 'https://namoalliance.org/';
+      } else {
+        alert(result.error);
+      }
+    };
+
+    return (
+      <form onSubmit={handleLogin}>
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
+        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
+        <button type="submit">Login</button>
+      </form>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+  </body>
+</html>
