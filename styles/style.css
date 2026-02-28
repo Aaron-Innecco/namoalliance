@@ -15,19 +15,10 @@ html, body {
 }
 
 #bottombar-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   background-color: #000b58;
   padding: 10px 20px;
-}
-
-#bottombar-container {
-  position: relative;
   display: flex;
-  align-items: flex-end;
 }
-
 
 #memberlist img {
   width: 150px;
