@@ -153,7 +153,7 @@
     {
       "name": "Republic of Gvarii",
       "flag_url": "https://static.wikitide.net/namowiki/a/a0/Gvarii_Flag.jpg",
-      "wikipage": "https://namo.miraheze.org/wiki/Gvarii,_Republic_of"
+      "wikipage": ""
     },
     {
       "name": "Republic of Mojo",
@@ -194,6 +194,11 @@
       "name": "Kingdom of New Thrace (Tsarist Empire of Kipstania)",
       "flag_url": "https://static.wikitide.net/namowiki/9/98/Kingdom_of_New_Thrace_flag.png",
       "wikipage": "https://namo.miraheze.org/wiki/New_Thrace,_Kingdom_of"
+    },
+    {
+      "name": "Juche Republic of Solihull",
+      "flag_url": "https://static.wikitide.net/namowiki/d/d2/JUCHE.png",
+      "wikipage": ""
     },
     {
       "name": "Dominion of Ezo and Gajajima",
