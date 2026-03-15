@@ -8,7 +8,8 @@ function News() {
   useEffect(() => {
     async function load() {
       const n = await fetchNews();
-      setNews(n.news || []);
+      // Reverse so latest news (bottom of JSON) comes first
+      setNews((n.news || []).slice().reverse());
     }
     load();
   }, []);
