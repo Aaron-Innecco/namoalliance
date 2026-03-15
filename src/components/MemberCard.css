@@ -1,0 +1,46 @@
+.member-card {
+  background: #050b1f;
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid rgba(230, 230, 230, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.member-flag {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.member-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.member-desc {
+  font-size: 0.85rem;
+  color: #c9d6eb;
+}
+
+.member-link {
+  font-size: 0.85rem;
+  color: #3a6ea5;
+  text-decoration: underline;
+  margin-top: 0.25rem;
+}
+
+.member-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.member-card-link:hover {
+  opacity: 0.8;
+}
