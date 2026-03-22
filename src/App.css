@@ -173,3 +173,29 @@ body {
   color: #5a8fc8;
   text-decoration: underline;
 }
+
+.page.members-page {
+  animation: fadeIn 0.5s ease-in-out, slideIn 0.5s ease-in-out;
+}
+
+.page.news-page {
+  animation: fadeIn 0.5s ease-in-out, slideIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

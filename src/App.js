@@ -3,6 +3,7 @@ import { Routes, Route} from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Members from "./pages/Members";
+import ContactUs from "./pages/ContactUs";
 import News from "./pages/News";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -49,6 +50,7 @@ function AppInner() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/members" element={<Members />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/news" element={<News />} />
             <Route path="/join" element={<Join />} />
             <Route path="/login" element={<Login setUser={setUser} />} />

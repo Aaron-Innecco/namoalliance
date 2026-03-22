@@ -202,14 +202,11 @@ async function loadAll() {
                     const date = prompt("New date:", n.date || "");
                     if (date == null) return;
 
-                    const image = prompt("New image URL:", n.image || "");
-                    if (image == null) return;
-
                     const text = prompt("New text:", n.text || "");
                     if (text == null) return;
 
                     try {
-                      await editNews(password, i, { title, date, image, text });
+                      await editNews(password, i, { title, date, text });
                       flash("News updated");
                       loadAll();
                     } catch {
@@ -246,13 +243,12 @@ async function loadAll() {
           onClick={async () => {
             const title = prompt("Title:");
             const date = prompt("Date (e.g. 2025-03-15):") || "";
-            const image = prompt("Image URL (optional):") || "";
             const text = prompt("Text:") || "";
 
             if (!title && !text) return;
 
             try {
-              await addNews(password, { title, date, image, text });
+              await addNews(password, { title, date, text });
               flash("News added");
               loadAll();
             } catch {

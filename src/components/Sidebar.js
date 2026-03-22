@@ -42,6 +42,16 @@ function Sidebar({ open, onToggle, user }) {
               </NavLink>
 
               <NavLink
+                to="https://wiki.namoalliance.org/wiki/Main_Page"
+                end
+                className={({ isActive }) =>
+                  "sidebar-link" + (isActive ? " active" : "")
+                }
+              >
+                Wiki
+              </NavLink>
+
+              <NavLink
                 to="/news"
                 className={({ isActive }) =>
                   "sidebar-link" + (isActive ? " active" : "")
@@ -57,6 +67,16 @@ function Sidebar({ open, onToggle, user }) {
                 }
               >
                 Join Us
+              </NavLink>
+
+              <NavLink
+                to="/contactus"
+                end
+                className={({ isActive }) =>
+                  "sidebar-link" + (isActive ? " active" : "")
+                }
+              >
+                Contact Us
               </NavLink>
 
               {user && user.is_admin && (

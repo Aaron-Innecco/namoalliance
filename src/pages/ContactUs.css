@@ -1,0 +1,64 @@
+/* ContactUs.css */
+
+.page.contact-page {
+  background: var(--bg-light);
+  color: var(--accent);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page.contact-page .page-section {
+  margin-bottom: 2rem;
+}
+
+.page.contact-page h1 {
+  font-size: 2rem;
+  color: var(--highlight);
+  margin-bottom: 1rem;
+}
+
+.page.contact-page .textbox {
+  font-size: 1rem;
+  color: var(--highlight-blue);
+  margin-bottom: 1.5rem;
+}
+
+.page.contact-page .contact-info {
+  font-size: 1rem;
+  color: var(--info);
+}
+
+.page.contact-page .contact-info a {
+  color: var(--highlight-blue);
+  text-decoration: none;
+}
+
+.page.contact-page .contact-info a:hover {
+  text-decoration: underline;
+}
+
+.organization-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.organization-info h2 {
+  font-size: 1.5rem;
+  color: var(--highlight);
+  margin-bottom: 1rem;
+}
+
+.organization-info p {
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.page.contact-page .organization-info p a {
+  text-decoration: none;
+  color: inherit;
+}
