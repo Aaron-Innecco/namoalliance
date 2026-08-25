@@ -1,0 +1,28 @@
+body {
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: aquamarine;
+    color: #0036A8;
+    margin: 50px;
+}
+
+button {
+    background-color: #0036A8;
+    color: white;
+    width: 200px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    height: auto;
+    border-color: #0036A8;
+}
+
+.article {
+    background-color: rgb(176, 255, 229);
+}
+
+ul {
+    font-weight: bold;
+    font-size: 22;
+}
