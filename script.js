@@ -1,9 +1,14 @@
-const homepage_carousel = document.getElementById("homepage_carousel");
-const homepage_carousel_caption = document.getElementById("homepage_carousel_caption");
-const politics_course_input = document.getElementById("politics_course_input");
-const politics_course_submit = document.getElementById("politics_course_submit");
-
 const hashed_code = "a187766f4a49b104ad75ef7865cba1767fb3e8195a259ba29f9b4a694c67d711";
+
+if (window.location == "https://naas.namoalliance.org/" || window.location == "http://naas.namoalliance.org/" || window.location == "http://aaronpi:8000/") {
+  const politics_course_input = document.getElementById("politics_course_input");
+  const politics_course_submit = document.getElementById("politics_course_submit");
+}
+
+if (window.location == "https://naas.namoalliance.org/" || window.location == "http://naas.namoalliance.org/" || window.location == "http://aaronpi:8000/") {
+  const homepage_carousel = document.getElementById("homepage_carousel");
+  const homepage_carousel_caption = document.getElementById("homepage_carousel_caption");
+}
 
 let slides = [];
 let currentIndex = 0;
@@ -33,7 +38,7 @@ function politics_course() {
   hashed_input = generateSHA256(politics_course_input.value)
   if (hashed_input == hashed_code) {
     console.log("YES!!")
-    document.cookie = "code="+hashed_input+";";
+    document.cookie = "code="+politics_course_input.value+";";
     return "Sucess"
   } else {
     console.log("FAIL!!!")
@@ -44,7 +49,7 @@ function politics_course() {
 }
 
 // Homepage Carousel
-if (window.location == "http://aaronpi:8000/") {
+if (window.location == "https://naas.namoalliance.org/" || window.location == "http://naas.namoalliance.org/" || window.location == "http://aaronpi:8000/") {
   fetch('slides.json')
     .then(response => response.json())
     .then(json => {
@@ -65,11 +70,14 @@ function rotate_homepage_carousel() {
   currentIndex = (currentIndex + 1) % slides.length;
 }
 
-if (getCookie("code") == hashed_code) {
-  if (window.location == "http://aaronpi:8000/courses/politics.html") {
-    window.location = "politics/overview.html";
-  }
+if (window.location == "https://naas.namoalliance.org/" || window.location == "http://naas.namoalliance.org/" || window.location == "http://aaronpi:8000/") {
+  setInterval(rotate_homepage_carousel, 5000);
 }
 
-setInterval(rotate_homepage_carousel, 5000);
-politics_course_submit.addEventListener("click", politics_course)
+if (window.location == "https://naas.namoalliance.org/courses/politics.html" || window.location == "http://naas.namoalliance.org/courses/politics.html" || window.location == "http://aaronpi:8000/courses/politics.html") {
+  if (generateSHA256(getCookie("code")) == hashed_code) {
+    window.location = "politics/overview.html";
+  } else {
+    politics_course_submit.addEventListener("click", politics_course)
+  }
+}
